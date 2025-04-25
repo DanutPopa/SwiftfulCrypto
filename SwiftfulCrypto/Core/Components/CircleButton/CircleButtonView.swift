@@ -27,11 +27,5 @@ struct CircleButtonView: View {
 }
 
 #Preview {
-    Group {
-        CircleButtonView(iconName: "info")
-        
-        CircleButtonView(iconName: "plus")
-            .preferredColorScheme(.dark)
-    }
-    
+    CircleButtonView(iconName: "info")
 }
