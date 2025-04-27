@@ -8,19 +8,32 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    @EnvironmentObject private var viewModel: HomeViewModel
     @State private var showPortfolio = false
     
     var body: some View {
-        ZStack {
-            // background layer
-            Color.theme.background
-                .ignoresSafeArea()
-            
-            // content layer
-            VStack {
-                homeHeader
-                Spacer(minLength: 0)
+        GeometryReader { geometry in
+            ZStack {
+                // background layer
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                // content layer
+                VStack {
+                    homeHeader
+                    
+                    ColumnTitlesView(showPortfolio: showPortfolio, geometry: geometry)
+                    
+                    if showPortfolio == false {
+                        allCoinsList
+                            .transition(.move(edge: .leading))
+                    } else {
+                        portfolioCoinsList
+                            .transition(.move(edge: .trailing))
+                    }
+                    
+                    Spacer(minLength: 0)
+                }
             }
         }
     }
@@ -31,6 +44,7 @@ struct HomeView: View {
         HomeView()
             .toolbar(.hidden, for: .navigationBar)
     }
+    .environmentObject(DeveloperPreview.instance.homeViewModel)
 }
 
 extension HomeView {
@@ -57,6 +71,48 @@ extension HomeView {
                     }
                 }
         }
+        .padding(.horizontal)
+    }
+    
+    private var allCoinsList: some View {
+        List {
+            ForEach(viewModel.allCoins) { coin in
+                CoinRowView(coin: coin, showHoldingsColumn: false)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 20, trailing: 5))
+            }
+        }
+        .listStyle(.plain)
+    }
+    
+    private var portfolioCoinsList: some View {
+        List {
+            ForEach(viewModel.portfolioCoins) { coin in
+                CoinRowView(coin: coin, showHoldingsColumn: true)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 20, trailing: 5))
+            }
+        }
+        .listStyle(.plain)
+    }
+    
+    
+}
+
+struct ColumnTitlesView: View {
+    var showPortfolio: Bool
+    var geometry: GeometryProxy
+    
+    var body: some View {
+        HStack {
+            Text("Coin")
+            Spacer()
+            if showPortfolio {
+                Text("Holdings")
+            }
+            Text("Price")
+                .frame(width: geometry.size.width / 2.8, alignment: .trailing)
+        }
+        .font(.caption)
+        .foregroundStyle(Color.theme.secondaryText)
         .padding(.horizontal)
     }
 }

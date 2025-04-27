@@ -22,7 +22,7 @@ struct CoinRowView: View {
                 }
                 
                 rightColumn
-                .frame(width: geometry.size.width / 3, alignment: .trailing)
+                    .frame(width: geometry.size.width / 3.5, alignment: .trailing)
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
