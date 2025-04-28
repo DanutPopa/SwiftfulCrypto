@@ -16,6 +16,7 @@ extension Double {
     func asCurrencyWithDecimals(_ fraction: Int, numberStyle: NumberFormatter.Style) -> String {
         let number = NSNumber(value: self)
         let formatter = NumberFormatter()
+        formatter.currencyCode = "EUR"
         formatter.numberStyle = numberStyle
         formatter.usesGroupingSeparator = true
         formatter.minimumFractionDigits = 2
