@@ -24,6 +24,7 @@
 		0CCF81C42DB8F7B500209ACA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF81C32DB8F7B500209ACA /* HomeView.swift */; };
 		0CCF81C82DB8FCC800209ACA /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF81C72DB8FCC800209ACA /* CircleButtonView.swift */; };
 		0CCF81CA2DB93E5400209ACA /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF81C92DB93E5400209ACA /* CircleButtonAnimationView.swift */; };
+		0CF421012DC0C6C100029A1E /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF421002DC0C6C100029A1E /* LocalFileManager.swift */; };
 		0CF62A972DBA5C9900822695 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF62A962DBA5C9900822695 /* CoinModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		0CCF81C32DB8F7B500209ACA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0CCF81C72DB8FCC800209ACA /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		0CCF81C92DB93E5400209ACA /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
+		0CF421002DC0C6C100029A1E /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		0CF62A962DBA5C9900822695 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				0C85FE412DBF830D00E650F5 /* NetworkingManager.swift */,
+				0CF421002DC0C6C100029A1E /* LocalFileManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				0C64E4F92DBBC56C00449290 /* DoubleExtension.swift in Sources */,
 				0C1F25592DBCFBB6005CD7A9 /* HomeViewModel.swift in Sources */,
 				0C64E4F52DBBA3A000449290 /* CoinRowView.swift in Sources */,
+				0CF421012DC0C6C100029A1E /* LocalFileManager.swift in Sources */,
 				0C0FF0992DB8083E007006F4 /* ContentView.swift in Sources */,
 				0C3E66CE2DBFC3CA0068FC69 /* CoinImageView.swift in Sources */,
 				0CCF81C42DB8F7B500209ACA /* HomeView.swift in Sources */,
