@@ -93,8 +93,6 @@ extension HomeView {
         }
         .listStyle(.plain)
     }
-    
-    
 }
 
 struct ColumnTitlesView: View {
