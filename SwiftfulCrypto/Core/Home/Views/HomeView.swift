@@ -19,8 +19,10 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 // content layer
-                VStack {
+                VStack(spacing: 5) {
                     homeHeader
+                    
+                    HomeStatsView(showPortfolio: $showPortfolio)
                     
                     SearchBarView(searchText: $viewModel.searchText)
                     
