@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
-    @State private var showPortfolio = false
+    @State private var showPortfolio = false    // animate right
+    @State private var showPortfolioView = false // new sheet
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,6 +18,10 @@ struct HomeView: View {
                 // background layer
                 Color.theme.background
                     .ignoresSafeArea()
+                    .sheet(isPresented: $showPortfolioView) {
+                        PortfolioView()
+                            .environmentObject(viewModel)
+                    }
                 
                 // content layer
                 VStack(spacing: 5) {
@@ -57,6 +62,11 @@ extension HomeView {
         HStack {
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
                 .animation(.none, value: showPortfolio)
+                .onTapGesture {
+                    if showPortfolio {
+                        showPortfolioView.toggle()
+                    }
+                }
                 .background(
                     CircleButtonAnimationView(animate: $showPortfolio)
                 )
